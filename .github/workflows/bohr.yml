@@ -1,0 +1,13 @@
+name: bohr.io deploy
+on: push
+permissions: write-all
+jobs:
+  deploy:
+    name: Deploy on bohr.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: bohr-io/action@main
+        with:
+          cli-version: '@bohr.io/bohr-dev@dev'
+          npm-token: ${{ secrets.NPM_TOKEN }}
